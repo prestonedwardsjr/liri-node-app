@@ -23,12 +23,16 @@ function searchSong(searchValue){
     // use Spotify key
     console.log("Search Value = " + searchValue);
     var spotify = new Spotify(keys.spotify);
-    spotify.search({ type: 'track', query: searchValue, limit: 1 }, function(err, data) {
+    spotify.search({ type: 'track', query: searchValue, limit: 5 }, function(err, data) {
         if (err) {
           return console.log('Error occurred: ' + err);
         }
+
        
-      console.log(data.tracks.href); 
+      console.log(data.tracks.items[0].artists); 
+      
+
+      
       });
 };
 
